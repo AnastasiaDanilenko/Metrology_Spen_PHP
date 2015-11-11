@@ -1,0 +1,102 @@
+unit Unit1;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtDlgs;
+
+type
+  TArrayOfString = array of string;
+  TOperand = record
+          operand: string;
+          count: integer;
+      end;
+  TArrOp = array of TOperand;
+  TArrInt = array of integer;
+  TForm_Spen = class(TForm)
+    OpenTextFileDialog_Load_Code: TOpenTextFileDialog;
+    Button_Load: TButton;
+    Memo_Code_From_File: TMemo;
+    Button_Check: TButton;
+    procedure Button_LoadClick(Sender: TObject);
+    procedure Button_CheckClick(Sender: TObject);
+    function create_array_to_analyze: TArrayOfString;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form_Spen: TForm_Spen;
+
+implementation
+
+{$R *.dfm}
+
+function TForm_Spen.create_array_to_analyze: TArrayOfString;
+const
+  comment_open = '/*';
+  comment_short = '//';
+  comment_close = '*/';
+var
+   code_to_analyze: TArrayOfString;
+   lines_in_code, i, lines_added, comment_line: integer;
+   line_to_analyze: string;
+begin
+    lines_in_code := Memo_Code_From_File.Lines.Count;
+    lines_added := 1;
+    setlength(code_to_analyze, lines_added);
+    i := 0;
+    while i < lines_in_code - 1 do
+    begin
+      if Memo_Code_From_File.Lines[i] <> '' then
+      begin
+         line_to_analyze := Memo_Code_From_File.Lines[i];
+         comment_line := pos(comment_short, line_to_analyze);
+         if comment_line <> 0 then
+             delete(line_to_analyze, comment_line, length(line_to_analyze));
+         comment_line := pos(comment_open, line_to_analyze);
+         if comment_line <> 0 then
+         begin
+            inc(i);
+            line_to_analyze := Memo_Code_From_File.Lines[i];
+            comment_line := pos(comment_close, line_to_analyze);
+            while comment_line = 0 do
+            begin
+                line_to_analyze := Memo_Code_From_File.Lines[i];
+                comment_line := pos(comment_close, line_to_analyze);
+                inc(i);
+            end;
+         end
+         else
+         begin
+            setlength(code_to_analyze, lines_added);
+            code_to_analyze[lines_added - 1] := line_to_analyze;
+            inc(lines_added);
+
+         end;
+      end;
+       inc(i);
+    end;
+    result := code_to_analyze;
+end;
+
+procedure TForm_Spen.Button_CheckClick(Sender: TObject);
+var
+  lines_in_code: integer;
+  code_to_analyze: TArrayOfString;
+begin
+    lines_in_code := Memo_Code_From_File.Lines.Count;
+    code_to_analyze :=  create_array_to_analyze;
+end;
+
+procedure TForm_Spen.Button_LoadClick(Sender: TObject);
+begin
+  if OpenTextFileDialog_Load_code.Execute then
+     Memo_Code_From_File.Lines.LoadFromFile(OpenTextFileDialog_Load_Code.FileName);
+
+end;
+
+end.

@@ -27,7 +27,7 @@ object Form_Spen: TForm_Spen
     Top = 72
     Width = 265
     Height = 220
-    Enabled = False
+    ReadOnly = True
     ScrollBars = ssVertical
     TabOrder = 1
   end
@@ -45,7 +45,7 @@ object Form_Spen: TForm_Spen
     Top = 72
     Width = 265
     Height = 220
-    Enabled = False
+    ReadOnly = True
     ScrollBars = ssVertical
     TabOrder = 3
   end

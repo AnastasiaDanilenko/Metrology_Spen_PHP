@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899.12.30 00:00:00.000.955,C:\Users\Lenovo\Documents\Embarcadero\Studio\Projects\Project1.dproj=E:\Laboratory_Works\Spen\Project1.dproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.563,E:\Laboratory_Works\Spen\Project1.dproj=E:\Laboratory_Works\Spen\Project_Spen.dproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.207,C:\Users\Lenovo\Documents\Embarcadero\Studio\Projects\Unit1.dfm=E:\Laboratory_Works\Spen\Unit1.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.207,C:\Users\Lenovo\Documents\Embarcadero\Studio\Projects\Unit1.pas=E:\Laboratory_Works\Spen\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.152,=C:\Users\Lenovo\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.514,=C:\Users\Lenovo\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2015.11.20 01:46:46.618,E:\Laboratory_Works\РЕЗЕРВНАЯ КОПИЯ СПЕН\Project_Spen.dproj=E:\Laboratory_Works\Spen\Project_Spen.dproj</Transaction>
+    <Transaction>2015.11.20 01:46:57.044,E:\Laboratory_Works\РЕЗЕРВНАЯ КОПИЯ СПЕН\Unit1.pas=E:\Laboratory_Works\Spen\Unit1.pas</Transaction>
+    <Transaction>2015.11.20 01:46:57.044,E:\Laboratory_Works\РЕЗЕРВНАЯ КОПИЯ СПЕН\Unit1.dfm=E:\Laboratory_Works\Spen\Unit1.dfm</Transaction>
+  </Transactions>
+</BorlandProject>
